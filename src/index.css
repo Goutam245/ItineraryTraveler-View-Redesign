@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Sophisticated deep teal + coral palette */
+    --background: 40 25% 98%;
+    --foreground: 200 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 25% 15%;
+
+    /* Deep ocean teal primary */
+    --primary: 185 65% 30%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 185 50% 95%;
+
+    /* Warm sand secondary */
+    --secondary: 35 30% 95%;
+    --secondary-foreground: 200 25% 20%;
+
+    --muted: 35 20% 93%;
+    --muted-foreground: 200 15% 45%;
+
+    /* Warm coral accent */
+    --accent: 12 75% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 25% 88%;
+    --input: 35 25% 88%;
+    --ring: 185 65% 30%;
+
+    --radius: 0.75rem;
+
+    /* Stop type colors - refined palette */
+    --flight: 12 70% 50%;
+    --flight-light: 12 80% 96%;
+    --flight-foreground: 0 0% 100%;
+
+    --hotel: 260 45% 50%;
+    --hotel-light: 260 60% 96%;
+    --hotel-foreground: 0 0% 100%;
+
+    --attraction: 185 65% 40%;
+    --attraction-light: 185 60% 95%;
+    --attraction-foreground: 0 0% 100%;
+
+    --restaurant: 25 85% 50%;
+    --restaurant-light: 25 90% 96%;
+    --restaurant-foreground: 0 0% 100%;
+
+    --freetime: 155 55% 40%;
+    --freetime-light: 155 60% 95%;
+    --freetime-foreground: 0 0% 100%;
+
+    /* Success/Warning */
+    --success: 155 55% 40%;
+    --success-light: 155 60% 94%;
+    --warning: 40 95% 50%;
+    --warning-light: 40 100% 95%;
+
+    /* Premium gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(185 65% 30%) 0%, hsl(195 70% 25%) 50%, hsl(200 60% 20%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(12 75% 55%) 0%, hsl(25 85% 55%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(200 25% 15% / 0.04);
+    --shadow-md: 0 4px 6px -1px hsl(200 25% 15% / 0.06), 0 2px 4px -2px hsl(200 25% 15% / 0.04);
+    --shadow-lg: 0 10px 15px -3px hsl(200 25% 15% / 0.08), 0 4px 6px -4px hsl(200 25% 15% / 0.04);
+    --shadow-xl: 0 20px 25px -5px hsl(200 25% 15% / 0.1), 0 8px 10px -6px hsl(200 25% 15% / 0.05);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 200 25% 15%;
+    --sidebar-primary: 185 65% 30%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 35 30% 96%;
+    --sidebar-accent-foreground: 200 25% 20%;
+    --sidebar-border: 35 25% 90%;
+    --sidebar-ring: 185 65% 30%;
+  }
+
+  .dark {
+    --background: 200 25% 8%;
+    --foreground: 40 25% 95%;
+
+    --card: 200 25% 12%;
+    --card-foreground: 40 25% 95%;
+
+    --popover: 200 25% 12%;
+    --popover-foreground: 40 25% 95%;
+
+    --primary: 185 60% 45%;
+    --primary-foreground: 200 25% 8%;
+    --primary-light: 185 40% 15%;
+
+    --secondary: 200 20% 18%;
+    --secondary-foreground: 40 25% 90%;
+
+    --muted: 200 20% 20%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 12 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 20%;
+    --input: 200 20% 20%;
+    --ring: 185 60% 45%;
+
+    /* Stop type colors - dark mode */
+    --flight-light: 12 50% 15%;
+    --hotel-light: 260 40% 15%;
+    --attraction-light: 185 50% 15%;
+    --restaurant-light: 25 60% 15%;
+    --freetime-light: 155 45% 15%;
+
+    --success-light: 155 45% 15%;
+    --warning-light: 40 60% 15%;
+
+    --sidebar-background: 200 25% 10%;
+    --sidebar-foreground: 40 25% 95%;
+    --sidebar-accent: 200 20% 15%;
+    --sidebar-accent-foreground: 40 25% 90%;
+    --sidebar-border: 200 20% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .stop-card {
+    @apply bg-card rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+  }
+
+  .stop-card-flight {
+    @apply border-l-4 border-l-flight;
+  }
+
+  .stop-card-hotel {
+    @apply border-l-4 border-l-hotel;
+  }
+
+  .stop-card-attraction {
+    @apply border-l-4 border-l-attraction;
+  }
+
+  .stop-card-restaurant {
+    @apply border-l-4 border-l-restaurant;
+  }
+
+  .stop-card-freetime {
+    @apply border-l-4 border-l-freetime;
+  }
+
+  .badge-flight {
+    @apply bg-flight text-flight-foreground;
+  }
+
+  .badge-hotel {
+    @apply bg-hotel text-hotel-foreground;
+  }
+
+  .badge-attraction {
+    @apply bg-attraction text-attraction-foreground;
+  }
+
+  .badge-restaurant {
+    @apply bg-restaurant text-restaurant-foreground;
+  }
+
+  .badge-freetime {
+    @apply bg-freetime text-freetime-foreground;
+  }
+
+  .tip-card {
+    @apply bg-warning-light border border-warning/20 rounded-lg p-4;
+  }
+
+  .info-card {
+    @apply bg-attraction-light border border-attraction/20 rounded-lg p-4;
+  }
+
+  .included-card {
+    @apply bg-success-light border border-success/20 rounded-lg p-4;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50 rounded-xl;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(185 65% 30%) 0%, hsl(195 70% 25%) 50%, hsl(200 60% 20%) 100%);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
